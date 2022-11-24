@@ -46,11 +46,11 @@
 	            value="<%=dto.getProfile()==null ? "empty" : dto.getProfile()%>"/>	
 			<div>
 				<label for="id">아이디</label>
-				<input type="text" id="id" value="<%=dto.getId() %>" disalbed/>
+				<input type="text" id="id" value="<%=dto.getId() %>" disabled/>
 			</div>
 			<div>
 				<label for="email">이메일</label>
-				<input type="text" id="email" name="email" vlaue="<%=dto.getEmail()%>"/>
+				<input type="text" id="email" name="email" value="<%=dto.getEmail()%>"/>
 			</div>
 			<button type="submit">수정확인</button>
 			<button type="reset">취소</button>
