@@ -40,9 +40,10 @@
 	           <img id="profileImage" src="${pageContext.request.contextPath }<%=dto.getProfile()%>">
 	        <%} %>
         </a>
-		<input type="hidden" name="profile" 
-            value="<%=dto.getProfile()==null ? "empty" : dto.getProfile()%>"/>
+
 		<form action="update.jsp" method="post">
+			<input type="hidden" name="profile" 
+	            value="<%=dto.getProfile()==null ? "empty" : dto.getProfile()%>"/>	
 			<div>
 				<label for="id">아이디</label>
 				<input type="text" id="id" value="<%=dto.getId() %>" disalbed/>
