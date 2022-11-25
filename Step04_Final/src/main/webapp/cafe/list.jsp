@@ -1,5 +1,12 @@
+<%@page import="test.cafe.dao.CafeDao"%>
+<%@page import="test.cafe.dto.CafeDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//글목록 얻어오기
+	List<CafeDto> list=CafeDao.getInstance().getList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +28,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+			<%for(CafeDto tmp:list){ %>
+				<tr>
+					<td><%=tmp.getNum() %></td>
+					<td><%=tmp.getWriter() %></td>
+					<td><%=tmp.getTitle() %></td>
+					<td><%=tmp.getViewCount() %></td>
+					<td><%=tmp.getRegdate() %></td>
+				</tr>
+			<%} %>
 			</tbody>
 		</table>
 	</div>
