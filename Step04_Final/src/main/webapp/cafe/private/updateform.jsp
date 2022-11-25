@@ -1,10 +1,19 @@
+<%@page import="test.cafe.dao.CafeDao"%>
+<%@page import="test.cafe.dto.CafeDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//1. 수정할 글번호를 읽어온다.
+	int num=Integer.parseInt(request.getParameter("num"));
+	//2. DB 에서 수정할 글정보를 읽어온다.
+	CafeDto dto=CafeDao.getInstance().getData(num);
+	//3. 글 수정 폼을 응답한다.
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/cafe/private/insertform.jsp</title>
+<title>/cafe/private/updateform.jsp</title>
 <style>
 	textarea{
 		width: 768px;
@@ -14,19 +23,23 @@
 </head>
 <body>
    <div class="container">
-      <h3>새글 작성 폼입니다.</h3>
-      <form action="insert.jsp" method="post">
+      <h3>글 수정 양식</h3>
+      <form action="update.jsp" method="post">
+      	 <!-- 수정반영할 때 글번호도 필요하기 때문에 input type="hidden" 으로 전송되도록 한다 -->	
+      	 <input type="hidden" name="num" value="<%=dto.getNum() %>"/>
          <div>
             <label for="title">제목</label>
-            <input type="text" name="title" id="title"/>
+            <input type="text" name="title" id="title" value="<%=dto.getTitle() %>"/>
          </div>
          <div>
             <label for="content">내용</label>
-            <textarea name="content" id="content" rows="10"></textarea>
+            <textarea name="content" id="content" rows="10"><%=dto.getContent() %></textarea>
          </div>
-         <button type="submit" onclick="submitContents(this)">저장</button>
+         <button type="submit" onclick="submitContents(this)">수정확인</button>
+         <button type="reset">취소</button>
       </form>
-   </div>
+   </div>	
+   
    <%--
       [ SmartEditor 를 사용하기 위한 설정 ]
       
@@ -40,7 +53,7 @@
       5. textarea 의 크기가 SmartEditor  의 크기가 된다.
       6. 폼을 제출하고 싶으면  submitContents(this) 라는 javascript 가 
             폼 안에 있는 버튼에서 실행되면 된다.
-    --%>
+    --%>   
    
    <!-- SmartEditor 에서 필요한 javascript 로딩  -->
    <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
