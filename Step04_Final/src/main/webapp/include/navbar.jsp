@@ -3,7 +3,11 @@
 <!-- /include/navbar.jsp 페이지의 내용 입니다. -->
 <%
 	// 이 navbar.jsp 페이지가 어디에 include 되었는지 읽어와 보기
-	String thisPage=request.getParameter("thisPage"); // "index" | "member" | "todo"
+	String thisPage=request.getParameter("thisPage");
+
+	//session scope 에 id 라는 키값으로 저장된 값이 있는지 읽어와 본다. (없으면 null)
+	String id=(String)session.getAttribute("id");
+
 %>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#712cf9;">
 	<div class="container">
