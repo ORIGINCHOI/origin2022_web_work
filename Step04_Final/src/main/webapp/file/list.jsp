@@ -129,5 +129,7 @@
 			}
 		}
 	</script>
+	<%-- /include/footer.jsp 페이지를 포함 시켜서 이부분은 footer.jsp 페이지가 응답하도록 한다. --%>
+    <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
