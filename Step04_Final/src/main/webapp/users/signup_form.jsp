@@ -113,7 +113,7 @@
 		  //아이디를 검증할 정규 표현식 
 	      const reg=/^[a-z].{4,9}$/;
 		  //입력한 아이디가 정규표현식과 매칭이 되는지(통과 되는지) 확인한다.
-		  const isMatch=reg.test(inputId)
+		  const isMatch=reg.test(inputId);
 	      //만일 매칭되지 않는다면
 	      if(!isMatch){
 	    	  self.classList.add("is-invalid")
