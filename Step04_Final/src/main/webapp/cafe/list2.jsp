@@ -105,7 +105,7 @@
                </li>
             </c:if>
             <c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
-               <li class="page-item ${statPageNum == i ? 'active':'' }">
+               <li class="page-item ${startPageNum == i ? 'active':'' }">
                   <a class="page-link" href="list.jsp?pageNum=${i }">${i }</a>
                </li>
             </c:forEach>
@@ -122,17 +122,3 @@
    </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
