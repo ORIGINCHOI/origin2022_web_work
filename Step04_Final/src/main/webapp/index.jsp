@@ -16,9 +16,6 @@
 <body>
 	<%-- /include/navbar.jsp 포함 시키기 --%>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="index" name="thisPage"/>
-	</jsp:include>
-	
 	<div class="container">
 		<%--
 			1. sessionScope.id != null
