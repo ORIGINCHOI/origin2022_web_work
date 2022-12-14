@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%-- /include/navbar.jsp 포함 시키기 --%>
-	<jsp:include page="/include/navbar.jsp">
+	<jsp:include page="WEB-INF/include/navbar.jsp"/>
 	<div class="container">
 		<%--
 			1. sessionScope.id != null
@@ -28,11 +28,28 @@
 		<c:choose>
 			<c:when test="${not empty id}">
 				<p>
-					<a href="${pageContext.request.contextPath }/users/private/info.jsp">${id}</a> 님 로그인중...
+					<a href="${pageContext.request.contextPath }/users/private/info.jsp">${id }</a> 님 로그인중...
 					<a href="${pageContext.request.contextPath }/users/logout.jsp">로그아웃</a>
 				</p>
 			</c:when>
+			<c:otherwise>
+				<a href="${pageContext.request.contextPath }/users/loginform.jsp">로그인</a>
+			</c:otherwise>
 		</c:choose>
+
+		<h1>인덱스 페이지 입니다.</h1>
+		<ul>
+			<li><a href="${pageContext.request.contextPath }/users/signup_form.jsp">회원가입</a></li>
+			<li><a href="${pageContext.request.contextPath }/private/study.jsp">회원전용공간(공부)</a></li>
+			<li><a href="${pageContext.request.contextPath }/private/game.jsp">회원전용공간(게임)</a></li>
+			<li><a href="file/list.jsp">자료실</a></li>
+			<li><a href="cafe/list.jsp">글목록보기</a></li>
+			<li><a href="my_app/index.html">React 테스트</a></li>
+			<li><a href="users/signup_form4.jsp">React 테스트2</a></li>
+		</ul>
+	</div>
+		
+		
 		<%if(id != null){ %>
 			<p>
 				<a href="${pageContext.request.contextPath }/users/private/info.jsp"><%=id %></a> 님 로그인중...
@@ -131,7 +148,8 @@
             </div>
          </div>
      </div>
+     
      <%-- /include/footer.jsp 페이지를 포함 시켜서 이부분은 footer.jsp 페이지가 응답하도록 한다. --%>
-     <jsp:include page="/include/footer.jsp"></jsp:include>
+     <jsp:include page="/include/footer.jsp"></jsp:include>  
 </body>
 </html>
